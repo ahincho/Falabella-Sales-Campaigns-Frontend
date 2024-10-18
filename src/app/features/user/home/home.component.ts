@@ -35,6 +35,7 @@ export class HomeComponent {
   endIndex: any;
   totalPag: any
   displayedPages: any[] = [];
+  transitionClass: string = '';
 
   constructor(
     private readonly couponService: CouponService,
@@ -116,5 +117,11 @@ export class HomeComponent {
       ? 'bg-[#04662e] text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
       : 'text-gray-900 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0'
       }`;
+  }
+  animatePage(direction: string) {
+    this.transitionClass = direction === 'left' ? '-translate-x-full' : 'translate-x-full';
+    setTimeout(() => {
+      this.transitionClass = 'translate-x-0';
+    }, 20);
   }
 }

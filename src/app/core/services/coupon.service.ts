@@ -19,14 +19,14 @@ export class CouponService {
     //   `${this.api_url}/api/v1/coupon/${nroDocument}`
     // );
     const mockCoupons: Client[] = [
-      {clientId: '123456', couponCodeBar: '123456', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
-      {clientId: '123456', couponCodeBar: '123456', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
-      {clientId: '123456', couponCodeBar: '123456', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
-      {clientId: '123456', couponCodeBar: '123456', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
-      {clientId: '123456', couponCodeBar: '123456', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
-      {clientId: '123456', couponCodeBar: '123456', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
-      {clientId: '123456', couponCodeBar: '123456', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
-      {clientId: '123456', couponCodeBar: '123456', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'}
+      {clientId: '123456', couponCodeBar: '1', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
+      {clientId: '123456', couponCodeBar: '2', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
+      {clientId: '123456', couponCodeBar: '3', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
+      {clientId: '123456', couponCodeBar: '4', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
+      {clientId: '123456', couponCodeBar: '5', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
+      {clientId: '123456', couponCodeBar: '6', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
+      {clientId: '123456', couponCodeBar: '7', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'},
+      {clientId: '123456', couponCodeBar: '8', couponCodeWeb: '123456', date: '2022-01-01', couponId: '123456', campaign: '123456', cuponType: '123456'}
     ]
 
     return of(mockCoupons);

@@ -7,10 +7,11 @@
   </div>
 </div>
 <!-- Lista de cupones -->
-<div class="bg-[#04662e] p-4">
+<div class="bg-[#04662e] p-8">
   <div class="flex flex-wrap">
     <ng-container *ngIf="currentCoupons && currentCoupons.length">
-      <div class="w-full md:w-1/4 px-2" *ngFor="let client of currentCoupons">
+      <div class="w-full md:w-1/4 px-2 transition-transform duration-500 ease-in-out transform hover:scale-105 {{transitionClass}}"
+        *ngFor="let client of currentCoupons">
         <app-coupon [barcode]="client.couponCodeBar" [webCode]="client.couponCodeWeb"></app-coupon>
       </div>
     </ng-container>
@@ -23,9 +24,9 @@
 
     <!-- Version movil -->
 
-    <a (click)="changePage(currentPage - 1); $event.preventDefault()"
+    <a (click)="changePage(currentPage - 1); $event.preventDefault(); animatePage('left')"
       class="relative inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Atrás</a>
-    <a (click)="changePage(currentPage + 1); $event.preventDefault()"
+    <a (click)="changePage(currentPage + 1); $event.preventDefault(); animatePage('right')"
       class="relative ml-3 inline-flex items-center rounded-md border border-gray-300 bg-white px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50">Siguiente</a>
   </div>
 
@@ -45,7 +46,7 @@
     <div>
       <!-- Enlaces de paginación -->
       <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination">
-        <a (click)="changePage(currentPage - 1); $event.preventDefault()"
+        <a (click)="changePage(currentPage - 1); $event.preventDefault(); animatePage('left')"
           class="relative inline-flex items-center rounded-l-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
           <span class="sr-only">Previous</span>
           <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -60,7 +61,7 @@
             {{ page }}
           </a>
         </ng-container>
-        <a (click)="changePage(currentPage + 1); $event.preventDefault()"
+        <a (click)="changePage(currentPage + 1); $event.preventDefault(); animatePage('right')"
           class="relative inline-flex items-center rounded-r-md px-2 py-2 text-gray-400 ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:z-20 focus:outline-offset-0">
           <span class="sr-only">Siguiente</span>
           <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
