@@ -81,8 +81,17 @@ export class HomeComponent {
 
   // Cambio de página
   changePage(page: number) {
-    if (page > 0 && page <= this.totalPages.length)
+    if (page > 0 && page <= this.totalPages.length) {
       this.currentPage = page;
+
+      if (this.currentPage === 1) {
+        this.animatePage('left');
+      }
+      else if (this.currentPage === this.totalPages.length) {
+        this.animatePage('right');
+      }
+
+    }
     else if (page > this.totalPages.length)
       this.currentPage = this.totalPages.length;
     else
@@ -122,6 +131,6 @@ export class HomeComponent {
     this.transitionClass = direction === 'left' ? '-translate-x-full' : 'translate-x-full';
     setTimeout(() => {
       this.transitionClass = 'translate-x-0';
-    }, 20);
+    }, 10);
   }
 }

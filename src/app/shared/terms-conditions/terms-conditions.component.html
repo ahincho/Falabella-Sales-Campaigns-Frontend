@@ -1,4 +1,8 @@
-<p class="text-black text-[8px] text-justify">Válido del 29/04 al 12/05 de 2024, te regalamos un vale de s/ 30 por cada
+<button (click)="toggleDescription()" class="text-[#04662e] font-bold py-2 px-4 rounded mt-4 align-middle underline"
+  *ngIf=[visible]>
+  {{message}}</button>
+
+<p class="text-black text-[8px] text-justify" *ngIf="visible">Válido del 29/04 al 12/05 de 2024, te regalamos un vale de s/ 30 por cada
   s/ 130 de compra en Vestuario, Accesorios, Calzado, Vestuario deportivo, Ropa de cama, Perfumería y Regalería en
   tiendas físicas de Falabella y falabella.com (para productos vendidos por Saga Falabella). Para recibir los vales
   virtuales se deberá entregar el número de DNI del cliente al momento de la compra.
