@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, distinctUntilChanged, map, Observable, shareReplay, tap } from 'rxjs';
+import { BehaviorSubject, distinctUntilChanged, map, Observable, of, shareReplay, tap } from 'rxjs';
 import { User } from '../user.model';
 import { Router } from '@angular/router';
 import { JwtService } from './jwt.service';
@@ -10,9 +10,18 @@ import { JwtService } from './jwt.service';
 })
 export class UserService {
 
-  public currentUserSubject = new BehaviorSubject<User | null>(null);
+  private readonly mockUser: User = {
+    nroDocument: '123456789',
+    token: 'fake-jwt-token',
+    username: 'admin',
+  };
 
-  private currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
+  // public currentUserSubject = new BehaviorSubject<User | null>(null);
+
+  // Set the current user simulation
+  public currentUserSubject = new BehaviorSubject<User | null>(this.mockUser);
+
+  private readonly currentUser = this.currentUserSubject.asObservable().pipe(distinctUntilChanged());
 
   public isAuthenticatedSubject = this.currentUser.pipe(map(user => !!user));
 
@@ -61,14 +70,15 @@ export class UserService {
   }
 
   getCurrentUser(): Observable<User> {
-    return this.http
-      .get<User>('/user')
-      .pipe(tap({
-        next: user => this.setAuth(user),
-        error: () => this.logout()
-      }),
-        shareReplay(1),
-      );
+    // return this.http
+    //   .get<User>('/user')
+    //   .pipe(tap({
+    //     next: user => this.setAuth(),
+    //     error: () => this.logout()
+    //   }),
+    //     shareReplay(1),
+    //   );
+    return of(this.mockUser);
   }
 
   setAuth(user: User): void {
