@@ -1,0 +1,19 @@
+<div class="flex flex-row md:flex-row items-center">
+  <div class="md:mr-8 ml-4">
+    <h1 [ngClass]="textSize" class="text-[#04662e]">
+      feliz
+      <h1>día <svg class="inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#eabfb5"
+          [attr.width]="textSize === 'text-8xl' ? '64' : '24'" [attr.height]="textSize === 'text-8xl' ? '64' : '24'">
+          <path
+            d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>
+      </h1>
+      <h1>mamá</h1>
+    </h1>
+    <div class="text-left subTitle border-heart justify-start text-[#eabfb5] font-bold md:text-3xl">
+      <h1>Descubre todo que tenemos para ti</h1>
+    </div>
+  </div>
+  <img [ngClass]="textSize + ' md:inline-block md:ml-4'" class="md:block mt-4 md:mt-0" src="assets/portada_fala.webp" alt="Portada Falabella"
+    [attr.width]="textSize === 'text-8xl' ? '300' : '190'" [attr.height]="textSize === 'text-8xl' ? '300' : 'auto'">
+</div>
