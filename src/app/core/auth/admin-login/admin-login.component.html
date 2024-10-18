@@ -1,0 +1,63 @@
+<nav class="bg-primary fixed w-full z-20 top-0 start-0">
+    <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl md:max-w-screen-2xl p-4">
+
+        <!-- Return to coupon login -->
+        <div class="flex items-center space-x-1 rtl:space-x-reverse text-white">
+            <svg class="w-4 h-4 md:w-6 md:h-6" xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 1024 1024">
+                <path fill="currentColor" d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64" />
+                <path fill="currentColor"
+                    d="m237.248 512l265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312z" />
+            </svg>
+            <a href="#" class=" text-sm md:text-lg font-semibol hover:underline">Regresar</a>
+        </div>
+    </div>
+</nav>
+
+<div class="flex w-auto h-screen login-container bg-primary">
+
+    <div class="bg-white rounded-3xl flex flex-row items-center m-auto px-24">
+
+        <!-- Image -->
+        <div class="w-1/2 hidden md:flex md:justify-end md:items-center ">
+            <img src="assets/images/portada_fala.webp" alt="Portada Falabella" width="400" height="500">
+        </div>
+        <!-- Login Form -->
+        <div class="w-1/2 flex flex-col justify-center items-center md:items-center h-full">
+            <div class="w-full max-w-md dark:bg-gray-800 px-8 pt-6 pb-8 mb-4">
+    
+                <!-- Logo -->
+                <div class="flex items-center justify-center md:items-center md:justify-center w-1/2 mt-20 m-auto">
+                    <img src="assets/images/logo_fala.webp" alt="Logo Falabella" width="300" height="400">
+                </div>
+    
+                <!-- Title -->
+                <h1 class="text-2xl font-bold mb-4 text-center">{{ title }}</h1>
+    
+                <!-- Form -->
+                <form [formGroup]="authForm" (ngSubmit)="doLogin()" class="w-full max-w-md bg-transparent px-8 pt-6 pb-8">
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="username">Nombre de usuario</label>
+                    <input type="text" id="username" formControlName="username" placeholder="Ingrege su nombre de usuario"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        [class.border-red-500]="authForm.controls['username'].touched && authForm.controls['username'].invalid" />
+    
+                    <label class="block text-gray-700 text-sm font-bold mb-2" for="password">Contraseña</label>
+                    <input type="password" id="password" formControlName="password" placeholder="Ingrege su contraseña"
+                        class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+                        [class.border-red-500]="authForm.controls['password'].touched && authForm.controls['password'].invalid" />
+    
+                    <button type="submit"
+                        class="w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+                        [disabled]="authForm.invalid">
+                        Ingresar
+                    </button>
+                </form>
+                <div>
+                    <p class="text-center text-gray-500 text-xs">
+                        {{ noAccount }}
+                        <a href="#" class="text-primary hover:text-green-800">{{ register }}</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
