@@ -45,6 +45,7 @@ export class HomeComponent {
 
   async ngOnInit(): Promise<void> {
     this.isMobile = window.innerWidth <= 768;
+    this.couponsPerPage = this.isMobile ? 1 : 4;
     this.userService.getCurrentUser().subscribe(user => {
       this.nroDocument = user.nroDocument;
     });
