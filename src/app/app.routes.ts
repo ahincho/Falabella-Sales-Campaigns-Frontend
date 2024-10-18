@@ -7,7 +7,7 @@ export const routes: Routes = [
     component: CouponsLoginComponent
   },
   {
-    path: '**',
-    redirectTo: ''
-  }
+    path: 'home',
+    loadChildren: () => import('./features/user/user.routes').then(m => m.USER_ROUTES),
+  },
 ];
