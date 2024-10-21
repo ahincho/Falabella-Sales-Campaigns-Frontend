@@ -36,12 +36,12 @@ export class UserService {
     remember: boolean,
     recaptchaToken: string
   }): Observable<{ user: User }> {
-    return this.http
-      .post<any>('/login', {
-        credentials
-      }).pipe(
-        tap(({ user }) => this.setAuth(user))
-      )
+    const mockUser: User = {
+      nroDocument: credentials.nroDocument,
+      token: 'fake-jwt-token',
+      username: 'fake-username',
+    };
+    return of({ user: mockUser });
   }
 
   login_admin(credentials: {
