@@ -27,7 +27,7 @@ export class MenuAdminComponent {
     {
       label: 'Inicio',
       icon: 'M6 19h3v-6h6v6h3v-9l-6-4.5L6 10zm-2 2V9l8-6l8 6v12h-7v-6h-2v6zm8-8.75z',
-      link: '/dashboard',
+      link: '/admin',
     },
     {
       label: 'Campañas',
@@ -69,7 +69,10 @@ export class MenuAdminComponent {
       label: 'Carga de Archivos',
       icon: 'M4 20q-.825 0-1.412-.587T2 18V6q0-.825.588-1.412T4 4h6l2 2h8q.825 0 1.413.588T22 8v10q0 .825-.587 1.413T20 20zm0-2h16V8h-8.825l-2-2H4zm0 0V6z',
       link: '/files',
-    },
+    }
+  ];
+
+  salir: MenuItem[] = [
     {
       label: 'Salir',
       icon: 'm17 7l-1.41 1.41L18.17 11H8v2h10.17l-2.58 2.58L17 17l5-5M4 5h8V3H4c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h8v-2H4z',

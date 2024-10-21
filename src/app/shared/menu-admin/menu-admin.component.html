@@ -122,7 +122,31 @@
       </li>
     </ul>
   </div>
+
+  <div class="py-4 overflow-y-auto mx-2">
+    <ul>
+      <li *ngFor="let item of salir">
+        <div>
+          <a [routerLink]="item.link"
+            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-primary">
+            <svg class="w-5 h-5 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 22 21">
+              <path [attr.d]="item.icon"></path>
+            </svg>
+            <span class="ms-3">{{ item.label }}</span>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <div class="flex flex-col py-4 mx-2">
+    <img class="w-2/3 mx-auto" src="assets/images/logo_fala.webp" alt="Logo Falabella">
+    <p class="text-gray-200 text-center text-[0.75rem]">Versión 1.0</p>
+  </div>
 </div>
+
+
 
 <!-- Fondo semi-transparente (opcional) -->
 <div *ngIf="isOpen" class="fixed inset-0 bg-black opacity-40 z-30" (click)="toggleDrawer()"></div>
