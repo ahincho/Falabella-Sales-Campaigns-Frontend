@@ -1,0 +1,128 @@
+<nav class="fixed top-0 z-20 w-full bg-white border-b border-gray-200">
+  <div class="px-3 py-3 md:px-5 md:pl-3">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center justify-start rtl:justify-end">
+
+        <!-- Menu button -->
+        <div
+          class="text-center text-gray-500 hover:bg-gray focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 focus:outline-none"
+          (click)="toggleDrawer()">
+          <svg data-drawer-target="logo-sidebar" data-drawer-toggle="logo-sidebar" aria-controls="logo-sidebar"
+            xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 512 512">
+            <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="48"
+              d="M88 152h336M88 256h336M88 360h336" />
+          </svg>
+        </div>
+
+        <!-- Logo -->
+        <a href="./admin" class="flex ms-2 md:me-24 text-primary">
+          <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap">Falabella Admin</span>
+        </a>
+
+
+      </div>
+      <div class="flex items-center">
+        <div class="flex items-center ms-3">
+          <div>
+            <button type="button"
+              class="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600"
+              aria-expanded="false" data-dropdown-toggle="dropdown-user">
+              <span class="sr-only">Open user menu</span>
+              <img class="w-8 h-8 rounded-full" src="https://flowbite.com/docs/images/people/profile-picture-5.jpg"
+                alt="user photo">
+            </button>
+          </div>
+          <div
+            class="z-50 hidden my-4 text-base list-none bg-white divide-y divide-gray-100 rounded shadow dark:bg-gray-700 dark:divide-gray-600"
+            id="dropdown-user">
+            <div class="px-4 py-3" role="none">
+              <p class="text-sm text-gray-900" role="none">
+                Neil Sims
+              </p>
+              <p class="text-sm font-medium text-gray-900 truncate dark:text-gray-300" role="none">
+                neil.simsflowbite.com
+              </p>
+            </div>
+            <ul class="py-1" role="none">
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem">Dashboard</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem">Settings</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem">Earnings</a>
+              </li>
+              <li>
+                <a href="#"
+                  class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100  dark:hover:bg-gray-600 dark:hover:text-white"
+                  role="menuitem">Cerrar Sesión</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- drawer component -->
+<div
+  [ngClass]="{'fixed top-0 left-0 z-40 w-64 h-screen overflow-y-auto transition-transform duration-500 bg-white dark:bg-gray-800 shadow-lg': true, '-translate-x-full': !isOpen, 'translate-x-0': isOpen}"
+  tabindex="-1" aria-labelledby="drawer-navigation-label">
+  <div class="flex items-center justify-between bg-slate-200">
+    <h5 id="drawer-navigation-label" class="text-md md:text-lg font-semibold text-gray-500 bg-slate-200 p-5">Hola
+      {{usuario}} !</h5>
+    <button (click)="toggleDrawer()" class="p-2" aria-controls="drawer-navigation">
+      <svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 24 24">
+        <path fill="currentColor"
+          d="m6.4 18.308l-.708-.708l5.6-5.6l-5.6-5.6l.708-.708l5.6 5.6l5.6-5.6l.708.708l-5.6 5.6l5.6 5.6l-.708.708l-5.6-5.6z" />
+      </svg>
+      <span class="sr-only">Close menu</span>
+    </button>
+  </div>
+
+  <div class="py-4 overflow-y-auto border-b border-gray-200 mx-2">
+    <ul class="space-y-2 font-medium">
+      <li *ngFor="let item of menuItems">
+        <div>
+          <a [routerLink]="item.link"
+            class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-primary">
+            <svg class="w-5 h-5 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+              viewBox="0 0 22 21">
+              <path [attr.d]="item.icon"></path>
+            </svg>
+            <span class="ms-3">{{ item.label }}</span>
+            <button *ngIf="item.children" (click)="item.isOpen = !item.isOpen" class="ml-auto">
+              <svg class="w-5 h-5 text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor"
+                viewBox="0 0 24 24">
+                <path [attr.d]="item.isOpen ? 'M7 10l5 5 5-5H7z' : 'M7 14l5-5 5 5H7z'"></path>
+              </svg>
+            </button>
+          </a>
+          <ul *ngIf="item.isOpen" class="ml-4 space-y-2">
+            <li *ngFor="let subItem of item.children">
+              <a [routerLink]="subItem.link"
+                class="flex items-center p-2 text-gray-900 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 group hover:text-primary">
+                <svg class="w-5 h-5 text-gray-500" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"
+                  fill="currentColor" viewBox="0 0 22 21">
+                  <path [attr.d]="subItem.icon"></path>
+                </svg>
+                <span class="ms-3">{{ subItem.label }}</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<!-- Fondo semi-transparente (opcional) -->
+<div *ngIf="isOpen" class="fixed inset-0 bg-black opacity-40 z-30" (click)="toggleDrawer()"></div>
