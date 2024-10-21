@@ -1,0 +1,17 @@
+.border-bottom-custom {
+  width: 100%;
+  height: 30px;
+  background: repeating-linear-gradient(
+    60deg,
+    #dc2626 0px,
+    #dc2626 12px,
+    #f472b6 12px,
+    #f472b6 24px,
+    #FFFFFF 24px,
+    #FFFFFF 36px,
+    #C1D005 36px,
+    #C1D005 48px,
+    #04662E 48px,
+    #04662E 60px
+  );
+}

@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { RecaptchaModule } from 'ng-recaptcha';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
+import { BorderComponent } from "../../../shared/border/border.component";
 
 @Component({
   selector: 'app-coupons-login',
@@ -13,8 +14,9 @@ import { HttpClientModule } from '@angular/common/http';
     ReactiveFormsModule,
     RecaptchaModule,
     CommonModule,
-    HttpClientModule
-  ],
+    HttpClientModule,
+    BorderComponent
+],
   templateUrl: './coupons-login.component.html',
   styleUrl: './coupons-login.component.css',
   providers: [UserService]
