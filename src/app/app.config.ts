@@ -16,14 +16,14 @@ export function initAuth(jwtService: JwtService, authService: UserService) {
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient(
-      withInterceptors([tokenInterceptor, apiInterceptor])
-    ),
-    {
-      provide: APP_INITIALIZER,
-      useFactory: initAuth,
-      deps: [JwtService, UserService],
-      multi: true
-    }
+    // provideHttpClient(
+    //   withInterceptors([tokenInterceptor, apiInterceptor])
+    // ),
+    // {
+    //   provide: APP_INITIALIZER,
+    //   useFactory: initAuth,
+    //   deps: [JwtService, UserService],
+    //   multi: true
+    // }
   ]
 };
