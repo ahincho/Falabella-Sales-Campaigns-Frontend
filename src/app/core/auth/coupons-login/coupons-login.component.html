@@ -19,47 +19,42 @@
 
 <div class="w-full flex flex-wrap login-container h-screen relative bg-primary">
 
-  <div class="w-1/2 flex justify-end shadow-sm">
-    <img class="object-contain w-1/2 hidden md:block" src="assets/images/portada_fala.webp" alt="Portada Falabella" width="590"
-      height="500">
-  </div>
-
   <!-- Login Section -->
-  <div class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-start h-full">
+  <div class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-center h-full">
 
-    <div class="flex justify-center items-end md:items-end w-1/2 mt-20 mx-14">
-      <img src="assets/images/logo_fala.webp" alt="Logo Falabella" width="300" height="400">
+    <div class="flex mb-4 justify-center items-end md:items-end w-1/2 text-center text-5xl md:text-7xl text-secondary">
+      <h1>Falabella</h1>
     </div>
 
     <form [formGroup]="authForm" (ngSubmit)="doLogin()" class="w-full max-w-md bg-transparent px-8 pt-6 pb-8">
 
       <!-- Alerta de Error -->
-      <div *ngIf="status === 'failed'" class="fixed top-20 right-0 m-4 bg-red-500 text-white px-4 py-2 rounded">
+      <div *ngIf="status === 'failed'" class="fixed top-20 right-0 m-4 bg-secondary text-white px-4 py-2 rounded font-bold">
         Fallo el ingreso a la plataforma
       </div>
 
       <!-- Welcome Messages -->
-      <div class="welcome text-right text-xl sm:text-lg md:text-3xl text-[#04662e]">
-        <span>¡Ahora puedes comprar tus marcas favoritas con tus vales de Falabella!</span>
+      <div class="welcome text-left text-xl sm:text-lg md:text-3xl text-white mb-8">
+        <span>¡Compra tus regalos navideños con tus vales de Falabella!</span>
         <br>
-        <span class="text-[#eabfb5]">Ingresa aquí y accede a tus vales</span>
+        <span class="text-secondary">Ingresa aquí para conseguirlos</span>
       </div>
 
       <!-- Radio Buttons -->
-      <div class="mb-3 form-login accent-[#04662e] text-right text-[#04662e]">
+      <div class="mb-3 form-login accent-secondary text-left text-secondary">
         <div class="custom-control inline">
           <input type="radio" id="customRadio1" formControlName="typeDocument" value="DNI" class="custom-control-input">
-          <label class="custom-control-label px-2" for="customRadio1">DNI</label>
+          <label class="custom-control-label px-2 text-sm" for="customRadio1">DNI</label>
         </div>
       </div>
 
       <!-- Document Input -->
       <div class="mb-3 input-login">
         <input type="text" id="nroDocument" formControlName="nroDocument" placeholder="Ingresar número de documento"
-          class="shadow appearance-none border rounded w-full py-2 px-3 text-[#04662e] leading-tight focus:outline-none focus:shadow-outline border-[#04662e]"
+          class="shadow appearance-none border-2 rounded w-full py-2 px-3 text-primary leading-tight focus:outline-none focus:shadow-outline border-secondary"
           [class.border-red-500]="authForm.controls['nroDocument'].invalid && authForm.controls['nroDocument'].touched">
         <div *ngIf="authForm.controls['nroDocument'].invalid && authForm.controls['nroDocument'].touched"
-          class="text-[#] text-xs mt-1">
+          class="text-white text-xs mt-1">
           <div *ngIf="authForm.controls['nroDocument'].errors?.['required']">El número de documento es requerido</div>
           <div *ngIf="authForm.controls['nroDocument'].errors?.['minlength']">El número de documento debe tener 8
             caracteres</div>
@@ -69,10 +64,10 @@
       </div>
 
       <!-- Checkbox -->
-      <div class="mb-3 custom-checkbox text-right text-primary">
-        <input type="checkbox" class="custom-control-input mr-2 border-primary accent-primary" id="customCheck1"
+      <div class="mb-8 custom-checkbox text-left text-secondary">
+        <input type="checkbox" class="custom-control-input mr-2 border-secondary accent-secondary" id="customCheck1"
           formControlName="remember">
-        <label class="custom-control-label " for="customCheck1">Recordar número de documento</label>
+        <label class="custom-control-label text-sm" for="customCheck1">Recordar número de documento</label>
       </div>
 
       <!-- Recaptcha -->
@@ -84,12 +79,12 @@
       <!-- Button -->
       <div class="flex justify-center">
         <button type="submit" [disabled]="!authForm.valid || !validRecaptcha || status === 'loading'"
-          class="bg-[#04662e] text-white hover:text-white font-bold py-3 px-24 md:px-36 rounded focus:outline-none focus:shadow-outline"
-          [class.bg-[#04662e]]="authForm.controls['nroDocument'].valid && authForm.controls['nroDocument'].touched && authForm.controls['nroDocument'].value.length == 8 && validRecaptcha"
-          [class.bg-[#456d57]]="!authForm.controls['nroDocument'].valid || !authForm.controls['nroDocument'].touched || authForm.controls['nroDocument'].value.length != 8 || !validRecaptcha">
+          class="bg-[#c4cb6f] text-white  font-bold py-3 px-24 md:px-36 rounded-lg focus:outline-none focus:shadow-outline"
+          [class.bg-[#C1D005]]="authForm.controls['nroDocument'].valid && authForm.controls['nroDocument'].touched && authForm.controls['nroDocument'].value.length == 8 && validRecaptcha"
+          [class.bg-[#c4cb6f]]="!authForm.controls['nroDocument'].valid || !authForm.controls['nroDocument'].touched || authForm.controls['nroDocument'].value.length != 8 || !validRecaptcha">
           <div style="display: flex; align-items: center;">
             <svg *ngIf="status === 'loading'"
-              class="h-5 w-5 mr-3 border-2 animate-spin border-white flex items-center justify-center border-t-[#04662e] rounded-full"
+              class="h-5 w-5 mr-3 border-2 animate-spin border-white flex items-center justify-center border-t-secondary rounded-full"
               viewBox="0 0 24 24" fill="#ffffff">
             </svg>
             <span *ngIf="status === 'loading'">Ingresando...</span>
@@ -98,6 +93,12 @@
         </button>
       </div>
     </form>
+  </div>
+
+  <!-- Image -->
+  <div class="w-1/2 flex justify-start shadow-sm">
+    <img class="object-contain w-1/2 hidden md:block" src="assets/images/portada_fala.webp" alt="Portada Falabella" width="590"
+      height="500">
   </div>
   <app-border class="absolute inset-x-0 bottom-0 z-20"></app-border>
 </div>

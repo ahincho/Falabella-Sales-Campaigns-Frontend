@@ -2,3 +2,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: 'ITC Avant Garde Pro Md';
+  src: url('assets/typography/Fonts_ITCAvantGardePro-Bold.otf') format('opentype');
+}
+@font-face {
+  font-family: 'Campton Medium';
+  src: url('assets/typography/Fonts_Campton-Medium.ttf') format('opentype');
+}
+@font-face {
+  font-family: 'Uncut Sans Variable';
+  src: url('assets/typography/Fonts_Uncut-Sans-Variable_2.ttf') format('opentype');
+}
+@font-face {
+  font-family: 'Lust Regular';
+  src: url('assets/typography/Lust\ Regular.woff2.otf') format('opentype');
+}

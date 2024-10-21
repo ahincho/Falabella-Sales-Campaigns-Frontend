@@ -9,6 +9,7 @@ import { CouponComponent } from '../coupon/coupon.component';
 import { Client } from '../../../core/models/client.model';
 import { CouponService } from '../../../core/services/coupon.service';
 import { UserService } from '../../../core/auth/services/user.service';
+import { BorderComponent } from "../../../shared/border/border.component";
 
 @Component({
   selector: 'app-home',
@@ -19,8 +20,9 @@ import { UserService } from '../../../core/auth/services/user.service';
     CommonModule,
     HttpClientModule,
     MainMessageComponent,
-    LegalConditionsComponent
-  ],
+    LegalConditionsComponent,
+    BorderComponent
+],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
   providers: [CouponService, UserService]

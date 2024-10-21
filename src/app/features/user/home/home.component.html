@@ -1,11 +1,13 @@
 <!-- Menú de navegación -->
 <app-navbar></app-navbar>
 
-<div class="flex-col justify-center items-center">
+<div class="flex-col justify-center items-center mt-16">
   <div class="flex message sm:px-48 md:px-64 lg:px-80 xl:px-32 justify-center">
     <app-main-message [textSize]="isMobile ? 'text-5xl' : 'text-8xl'"></app-main-message>
   </div>
 </div>
+
+<app-border></app-border>
 <!-- Lista de cupones -->
 <div class="bg-[#04662e] p-8">
   <div class="flex flex-wrap">
