@@ -7,16 +7,16 @@
   </div>
 
   <!-- Mensaje centrado al inicio-->
-  <div class="mt-[-1rem] mr-0 mb-5 font-bold text-center">
+  <div class="mt-[-1rem] mr-0 mb-2 md:mb-5 font-bold text-center">
     <h1 class="text-2xl text-[#eabfb5]">Úsalo del 13 al 15 de mayo</h1>
   </div>
 
   <!-- Texto centrado mostrando el precio -->
   <div
-    class="priceText top-0 right-0 text-9xl text-center text-green-800 border-r-4 border-[#04662e] font-bold mb-4">
+    class="priceText top-0 right-0 text-8xl md:text-9xl text-right md:text-center text-green-800 border-r-4 border-[#04662e] font-bold mb-4">
     <h1 class="text-[#04662e] inline text-6xl">S/</h1>30
-    <h1 class="text-2xl text-[#04662e]">Tarjeta de regalo <svg class="inline" xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 24 24" fill="#04662e" width="16" height="16">
+    <h1 class="text-sm md:text-2xl text-[#04662e]">Tarjeta de regalo <svg class="inline"
+        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#04662e" width="16" height="16">
         <path
           d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
       </svg></h1>
@@ -26,18 +26,23 @@
 
     <!-- Codigo de barra -->
     <div class="barcode-container mb-2 text-center">
-      <h1 class="text-[#04662e]">Usa este vale en tiendas físicas</h1>
-      <ngx-barcode6 class="inline-block" [bc-value]="barcode" [bc-display-value]="true" [bc-height]="50" [bc-width]="2"
+      <h1 class="text-[#04662e] text-sm md:text-lg">Usa este vale en tiendas físicas</h1>
+      <ngx-barcode6 class="inline-block text-sm md:text-lg" [bc-value]="barcode" [bc-display-value]="true" [bc-height]="50" [bc-width]="2"
         [bc-background]="'#f9fafb'"></ngx-barcode6>
     </div>
 
     <!-- Código web y botón de copiar -->
-    <div class="web-container items-center">
+    <div class="web-container items-center text-sm md:text-lg">
       <h1 class="text-[#04662e]">Usa este código en falabella.com</h1>
       <div class="flex justify-center items-center bg-white">
         <p class="text-[#04662e] text-sm">{{ webCode }}</p>
         <button (click)="copyToClipboard(webCode)" class="ml-2 px-2 align-middle">
-          <img src="assets/icon_copy.svg" alt="Copiar" class="w-6 h-6">
+          <svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24">
+            <g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 3H4v13" />
+              <path d="M8 7h12v12a2 2 0 0 1-2 2h-8a2 2 0 0 1-2-2z" />
+            </g>
+          </svg>
         </button>
       </div>
     </div>
@@ -46,6 +51,6 @@
 </div>
 
 <!-- Mensaje copiado al portapapeles -->
-<div *ngIf="copied" class="fixed top-0 right-0 m-4 bg-[#04662e] text-white px-4 py-2 rounded">
+<div *ngIf="copied" class="fixed top-0 right-0 m-4 bg-[#04662e] text-sm md:text-lg text-white px-4 py-2 rounded">
   ¡Código web copiado al portapapeles!
 </div>
