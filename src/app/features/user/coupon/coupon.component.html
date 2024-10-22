@@ -12,27 +12,29 @@
   </div>
 
   <!-- Texto centrado mostrando el precio -->
-  <div
-    class="priceText top-0 right-0 text-8xl md:text-9xl text-right md:text-center text-green-800 border-r-4 border-[#04662e] font-bold mb-4 transform sm:scale-75">
-    <h1 class="text-[#04662e] inline text-6xl">S/</h1>30
-    <h1 class="text-sm md:text-2xl text-[#04662e]">Tarjeta de regalo <svg class="inline"
-        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#04662e" width="16" height="16">
-        <path
-          d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
-      </svg></h1>
+  <div class="priceText relative top-0 right-0 text-right md:text-center text-green-800 border-r-4 border-[#04662e] font-bold mb-4 transform">
+    <h1 class="text-[#04662e] inline-block text-2xl sm:text-2xl md:text-3xl lg:text-5xl">S/</h1>
+    <span class="text-5xl sm:text-5xl md:text-5xl lg:text-8xl">30</span>
+    <h1 class="text-sm sm:text-base md:text-lg lg:text-2xl text-[#04662e] mt-2">
+      Tarjeta de regalo 
+      <svg class="inline ml-2" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#04662e" width="16" height="16">
+        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+      </svg>
+    </h1>
   </div>
+  
 
   <div class="flex flex-col items-center">
 
     <!-- Codigo de barra -->
     <div class="barcode-container mb-2 text-center">
-      <h1 class="text-[#04662e] text-sm md:text-lg">Usa este vale en tiendas físicas</h1>
+      <h1 class="text-[#04662e] text-sm md:text-base lg:text-lg ">Usa este vale en tiendas físicas</h1>
       <ngx-barcode6 class="inline-block text-sm md:text-lg" [bc-value]="barcode" [bc-display-value]="true" [bc-height]="50" [bc-width]="2"
         [bc-background]="'#f9fafb'"></ngx-barcode6>
     </div>
 
     <!-- Código web y botón de copiar -->
-    <div class="web-container items-center text-sm md:text-lg">
+    <div class="web-container items-center xs:text-sm md:text-base lg:text-lg">
       <h1 class="text-[#04662e]">Usa este código en falabella.com</h1>
       <div class="flex justify-center items-center bg-white">
         <p class="text-[#04662e] text-sm">{{ webCode }}</p>
@@ -46,8 +48,8 @@
         </button>
       </div>
     </div>
+    <app-terms-conditions></app-terms-conditions>
   </div>
-  <app-terms-conditions></app-terms-conditions>
 </div>
 
 <!-- Mensaje copiado al portapapeles -->
