@@ -17,12 +17,12 @@
   </div>
 </nav>
 
-<div class="w-full flex flex-wrap login-container h-screen relative bg-primary md:mt-0">
+<div class="w-full flex flex-wrap login-container h-screen relative bg-primary xs:mt-4 sm:mt-0 md:mt-0">
 
   <!-- Login Section -->
   <div class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-center h-full z-20">
 
-    <div class="flex sm:mb-2 md:mb-4 justify-center items-end md:items-end text-center xs:lg sm:text-4xl md:text-7xl text-secondary">
+    <div class="flex sm:mb-2 md:mb-4 justify-center items-end md:items-end text-center xs:text-3xl sm:text-4xl md:text-7xl text-secondary">
       <h1>Falabella</h1>
     </div>
 
@@ -44,7 +44,7 @@
       <div class="mb-3 form-login accent-secondary text-left text-secondary">
         <div class="custom-control inline">
           <input type="radio" id="customRadio1" formControlName="typeDocument" value="DNI" class="custom-control-input">
-          <label class="custom-control-label px-2 text-sm" for="customRadio1">DNI</label>
+          <label class="custom-control-label px-2 text-xs md:text-sm" for="customRadio1">DNI</label>
         </div>
       </div>
 
@@ -98,8 +98,7 @@
 
   <!-- Image -->
   <div class="w-1/2 flex justify-start shadow-sm">
-    <img class="object-contain w-1/2 hidden md:block" src="assets/images/portada_fala.webp" alt="Portada Falabella" width="590"
-      height="500">
+    <img class="object-contain w-1/2 hidden md:block h-auto" src="assets/images/portada_fala.webp" alt="Portada Falabella">
   </div>
   <app-border class="absolute inset-x-0 bottom-0 z-10"></app-border>
 
