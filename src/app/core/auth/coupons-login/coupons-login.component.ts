@@ -6,6 +6,7 @@ import { RecaptchaModule } from 'ng-recaptcha';
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { BorderComponent } from "../../../shared/border/border.component";
+import { OrnamentComponent } from "../../../shared/ornament/ornament.component";
 
 @Component({
   selector: 'app-coupons-login',
@@ -15,7 +16,8 @@ import { BorderComponent } from "../../../shared/border/border.component";
     RecaptchaModule,
     CommonModule,
     HttpClientModule,
-    BorderComponent
+    BorderComponent,
+    OrnamentComponent
 ],
   templateUrl: './coupons-login.component.html',
   styleUrl: './coupons-login.component.css',

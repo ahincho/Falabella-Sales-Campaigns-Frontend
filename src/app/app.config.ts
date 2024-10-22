@@ -10,7 +10,7 @@ import { JwtService } from './core/auth/services/jwt.service';
 import { EMPTY } from 'rxjs';
 
 export function initAuth(jwtService: JwtService, authService: UserService) {
-  return () => { jwtService.getToken() ? authService.getCurrentUser() : EMPTY };
+  return () => (jwtService.getToken() ? authService.getCurrentUser() : EMPTY );
 }
 
 export const appConfig: ApplicationConfig = {
