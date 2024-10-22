@@ -1,14 +1,14 @@
-<nav class="bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
+<nav class="bg-white dark:bg-gray-900 fixed w-full z-30 top-0 start-0 border-b border-gray-200 dark:border-gray-600">
   <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl md:max-w-screen-2xl p-4">
     <!-- Logo  -->
     <a href="#" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="assets/images/icon_fala.png" class="h-8" alt="Falabella Logo" />
-      <span class="self-center text-lg md:text-2xl text-primary font-semibold">Falabella Cupones</span>
+      <span class="self-center xs:text-sm sm:text-lg md:text-2xl text-primary font-semibold">Falabella Cupones</span>
     </a>
 
     <!-- Access Login Admin -->
     <div class="flex items-center space-x-2 rtl:space-x-reverse">
-      <svg class="w-6 h-6 md:w-8 md:h-8" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256">
+      <svg class="xs:w-4 xs:h-4 sm:w-6 sm:h-6 md:w-8 md:h-8" xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" viewBox="0 0 256 256">
         <path fill="currentColor"
           d="m140.24 132.24l-40 40a6 6 0 0 1-8.48-8.48L121.51 134H24a6 6 0 0 1 0-12h97.51L91.76 92.24a6 6 0 0 1 8.48-8.48l40 40a6 6 0 0 1 0 8.48M200 34h-64a6 6 0 0 0 0 12h58v164h-58a6 6 0 0 0 0 12h64a6 6 0 0 0 6-6V40a6 6 0 0 0-6-6" />
       </svg>
@@ -17,16 +17,16 @@
   </div>
 </nav>
 
-<div class="w-full flex flex-wrap login-container h-screen relative bg-primary md:mt-12">
+<div class="w-full flex flex-wrap login-container h-screen relative bg-primary md:mt-0">
 
   <!-- Login Section -->
-  <div class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-center h-full">
+  <div class="w-full md:w-1/2 flex flex-col justify-center items-center md:items-center h-full z-20">
 
-    <div class="flex mb-4 justify-center items-end md:items-end text-center text-5xl md:text-7xl text-secondary">
+    <div class="flex sm:mb-2 md:mb-4 justify-center items-end md:items-end text-center xs:lg sm:text-4xl md:text-7xl text-secondary">
       <h1>Falabella</h1>
     </div>
 
-    <form [formGroup]="authForm" (ngSubmit)="doLogin()" class="w-full max-w-md bg-transparent px-8 pt-6 pb-8">
+    <form [formGroup]="authForm" (ngSubmit)="doLogin()" class="w-full max-w-xs md:max-w-md bg-transparent px-2 pt-6 pb-0">
 
       <!-- Alerta de Error -->
       <div *ngIf="status === 'failed'" class="fixed top-20 right-0 m-4 bg-secondary text-white px-4 py-2 rounded font-bold">
@@ -34,7 +34,7 @@
       </div>
 
       <!-- Welcome Messages -->
-      <div class="welcome text-left text-xl sm:text-lg md:text-3xl text-white mb-8">
+      <div class="welcome text-left xs:text-sm sm:text-lg md:text-3xl text-white xs:mb-2 sm:mb-4 md:mb-8">
         <span>¡Compra tus regalos navideños con tus vales de Falabella!</span>
         <br>
         <span class="text-secondary">Ingresa aquí para conseguirlos</span>
@@ -64,22 +64,23 @@
       </div>
 
       <!-- Checkbox -->
-      <div class="mb-8 custom-checkbox text-left text-secondary">
+      <div class="xs:mb-2 sm:mb-4 md:mb-8 custom-checkbox text-left text-secondary">
         <input type="checkbox" class="custom-control-input mr-2 border-secondary accent-secondary" id="customCheck1"
           formControlName="remember">
         <label class="custom-control-label text-sm" for="customCheck1">Recordar número de documento</label>
       </div>
 
       <!-- Recaptcha -->
-      <div class="mb-3 recaptcha flex justify-center">
+      <div class="xs:mb-1 sm:mb-2 md:mb-4 recaptcha flex justify-center transform xs:scale-75 sm:scale-90 md:scale-100">
         <re-captcha siteKey="6LcMY7cpAAAAAMmKu1Ti8Vn-UEEHETbUrEc0S6vZ" data-action="login"
           (resolved)="handleRecaptchaToken($event)"></re-captcha>
       </div>
 
+
       <!-- Button -->
       <div class="flex justify-center">
         <button type="submit" [disabled]="!authForm.valid || !validRecaptcha || status === 'loading'"
-          class="bg-[#c4cb6f] text-white  font-bold py-3 px-24 md:px-36 rounded-lg focus:outline-none focus:shadow-outline"
+          class="bg-[#c4cb6f] text-white font-bold xs:py-1 sm:py-2 md:py-3 px-24 md:px-36 rounded-lg focus:outline-none focus:shadow-outline"
           [class.bg-[#C1D005]]="authForm.controls['nroDocument'].valid && authForm.controls['nroDocument'].touched && authForm.controls['nroDocument'].value.length == 8 && validRecaptcha"
           [class.bg-[#c4cb6f]]="!authForm.controls['nroDocument'].valid || !authForm.controls['nroDocument'].touched || authForm.controls['nroDocument'].value.length != 8 || !validRecaptcha">
           <div style="display: flex; align-items: center;">
@@ -100,7 +101,7 @@
     <img class="object-contain w-1/2 hidden md:block" src="assets/images/portada_fala.webp" alt="Portada Falabella" width="590"
       height="500">
   </div>
-  <app-border class="absolute inset-x-0 bottom-0 z-20"></app-border>
+  <app-border class="absolute inset-x-0 bottom-0 z-10"></app-border>
 
   <app-ornament></app-ornament>
 </div>
