@@ -1,1 +1,41 @@
-<app-menu-admin></app-menu-admin>
+<div>
+  <div>
+    <h2 class="text-2xl sm:text-2xl md:text-3xl lg:text-4xl mb-2">Ultimas Campañas</h2>
+    <div class="flex flex-wrap">
+      <app-card class="mx-auto my-2" *ngFor="let card of cardsCampaign.slice(0, 3)" [imgCard]="card.imgCard"
+        [titleCard]="card.title" [dateEnd]="card.dateEnd" [days]="card.days">
+      </app-card>
+
+      <!-- Card view all -->
+      <div class="max-w-xs md:max-w-xs bg-white border border-stone-300 rounded-b-2xl shadow mx-auto my-2">
+        <a href="#">
+          <img class="" src="/assets/images/background_card_campaign.png" alt="card campaign" />
+        </a>
+        <a href="#" class="flex mx-auto justify-center items-center border-transparent rounded-b-lg p-4 sm:p-6 md:p-8 lg:p-12">
+          <h5 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-slate-500 text-center">
+            Ver todas las campañas
+          </h5>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div>
+    <h2 class="text-2xl sm:text-2xl md:text-3xl lg:text-4xl">Ultimas Cupones</h2>
+    <div class="flex flex-wrap">
+      <app-card class="mx-auto my-2" *ngFor="let card of cardsCoupon.slice(0, 3)" [imgCard]="card.imgCard"
+        [titleCard]="card.title" [dateEnd]="card.dateEnd" [days]="card.days">
+      </app-card>
+      <!-- Card view all -->
+      <div class="max-w-xs md:max-w-xs bg-white border border-stone-300 rounded-b-2xl shadow mx-auto my-2">
+        <a href="#">
+          <img class="" src="/assets/images/background_card_coupon.png" alt="card campaign" />
+        </a>
+        <a href="#" class="flex mx-auto justify-center items-center border-transparent rounded-b-lg p-4 sm:p-6 md:p-8 lg:p-12">
+          <h5 class="text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-tight text-slate-500 text-center">
+            Ver todos los cupones
+          </h5>
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
